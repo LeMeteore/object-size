@@ -1,4 +1,4 @@
-# Measure size of objects in an image using OpenCV 
+# Measure size of objects in an image using OpenCV
 
 The project provides a script to read an image and based on the dimensions of a reference object find the dimensions of other objects in a scene. The reference object must be the leftmost object in the scene. In sample images given, a box of dimension 2cm x 2cm is taken as a reference object.
 
@@ -16,16 +16,18 @@ Pip
 OpenCV
 Numpy
 
-### Installing
-For python and pip installation follow this blog
-1. For windows
-https://www.howtogeek.com/197947/how-to-install-python-on-windows/
-2. For Linux
-https://docs.python-guide.org/starting/install3/linux/
+### Installing all the requirements
+  - cd object-size
+  - python3 -m venv .env
+  - source .env/bin/activate
+  - pip install -r requirements.txt
 
-Other prerequisites:
-- pip install numpy
-- pip install opencv-python
+### Executing
+  - cd object-size
+  - cp images/example_01.jpg images/foo01.jpg
+  - python init.py
+  - you should see new files appearing inside the image folder:
+    - foo01\_blurred.jpg  foo01\_edged.jpg  foo01rslt.jpg
 
 ## Algorithm
 1. Image pre-processing
@@ -38,8 +40,8 @@ Other prerequisites:
   - Find contours
   - Remove small contours by calculating its area (threshold used here is 100)
   - Sort contours from left to right to find the reference objects
-  
-3. Reference object 
+
+3. Reference object
   - Calculate how many pixels are there per metric (centi meter is used here)
 
 4. Compute results
@@ -51,13 +53,8 @@ Other prerequisites:
 
 ## Authors
 
-* **Shashank Sharma** 
+* **Shashank Sharma**
 
 ## Acknowledgments
 
 * https://www.pyimagesearch.com/
-
-
-
-
- 
